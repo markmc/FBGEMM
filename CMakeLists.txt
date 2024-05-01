@@ -192,6 +192,7 @@ else(MSVC)
   string(APPEND CMAKE_CXX_FLAGS " -Werror")
   string(APPEND CMAKE_CXX_FLAGS " -Wno-deprecated-declarations")
   string(APPEND CMAKE_CXX_FLAGS " -Wimplicit-fallthrough")
+  append_cxx_flag_if_supported("-Wno-maybe-uninitialized" CMAKE_CXX_FLAGS)
   target_compile_options(fbgemm_avx2 PRIVATE
     "-m64" "-mavx2" "-mf16c" "-mfma")
   target_compile_options(fbgemm_avx512 PRIVATE
